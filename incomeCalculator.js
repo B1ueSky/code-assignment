@@ -21,7 +21,7 @@ function IncomeCalculator()
   this.it = new IncomeTax('个税税率.csv');
   }
 
-function calculate(income, meritType, hfRate)
+function calculate(name, income, meritType, hfRate)
 {
   const merit = this.mp.getPay('A');
   const sift  = this.s.getSihf(0.07, this.as.getEffectiveIncome(income));
@@ -31,13 +31,20 @@ function calculate(income, meritType, hfRate)
 
   /*
    calculate income detail for all employees,
-   and output to income_details.csv
+   and output to console.
    */
+  console.log(`${name}工资单如下：`);
+  console.log('第一部分：五险一金');
+  console.log(`|类型|${name}|公司|`);
   for (var type in sift)
   {
-    console.log(`${type} : ${sift[type][1]} ${sift[type][0]}`);
+    console.log(`|${type}|${sift[type][1]}|${sift[type][0]}|`);
   }
-  console.log(`小明|${income}|${merit}|${sift['总计'][1]}|${sift['总计'][0]}|${incomeBeforeTax}|${tax}|${incomeAfterTax}`);
+
+  console.log('第二部分：收入详情');
+  console.log('|姓名|岗位工资|绩效工资|五险一金（个人）|五险一金（单位）|税前收入|扣税|税后收入|')
+  console.log(`|${name}|${income}|${merit}|${sift['总计'][1]}|${sift['总计'][0]}|${incomeBeforeTax}|${tax}|${incomeAfterTax}|`);
+  console.log();
 }
 
 IncomeCalculator.prototype.calculate = calculate;

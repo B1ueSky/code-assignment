@@ -4,4 +4,4 @@
 
 const IncomeCalculator = require('./incomeCalculator.js');
 const ic = new IncomeCalculator();
-ic.calculate(27000, 'A', 0.07);
+ic.calculate('小明', 27000, 'A', 0.07);
