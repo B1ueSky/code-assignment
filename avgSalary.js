@@ -16,25 +16,21 @@ function AveSalary(csvFilePath)
   var fileContents = fs.readFileSync(this.csvFile);
   var lines = fileContents.toString().split('\n');
 
-  this.avg = Number(lines[1]);    // get the average salary
+  this.avg = Number(lines[1]);      // get the average salary
+  this.upperBound = this.avg * 3;   // upper bound of effective income for 五险一金
+  this.lowerBound = this.avg * 0.6; // lower bound of effective income for 五险一金
 };
 
-function getAvg()
+/**
+ * Calculate the effective income for 五险一金.
+ *
+ * @param income
+ * @returns {number|*}
+ */
+function getEffectiveIncome(income)
 {
-  return this.avg;
-};
-
-function getUpperBound()
-{
-  return 3 * this.avg;
+  return income < this.lowerBound ? this.lowerBound : income > this.upperBound ? this.upperBound : income;
 }
 
-function getLowerBound()
-{
-  return 0.6 * this.avg;
-}
-
-AveSalary.prototype.getAvg = getAvg;
-AveSalary.prototype.getUpperBound = getUpperBound;
-AveSalary.prototype.getLowerBound = getLowerBound;
+AveSalary.prototype.getEffectiveIncome = getEffectiveIncome;
 module.exports = AveSalary;
