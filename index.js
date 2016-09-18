@@ -18,7 +18,7 @@ function start()
   prompt.start();
 
   var query0 = '是否从员工名单文件中读取员工信息？（Y/N）';
-  var query1 = '请输入员工信息（格式：姓名,基本工资,绩效评分,公积金）';
+  var query1 = '请输入一名员工信息（格式：姓名,基本工资,绩效评分,公积金）';
   var query2 = '结果打印到屏幕输入 1 ，输出到result.csv输入 2 ：';
 
   // ask for input source
