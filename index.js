@@ -32,7 +32,8 @@ function incomeCalculator()
   };
 
   /* read individual income tax rate */
-  const incomeTaxRates;
+  const IncomeTax = require('./incomeTax.js');
+  const it = new IncomeTax('个税税率.csv');
 
   /* read employee list from file or typing */
   const employees;
