@@ -27,7 +27,7 @@ function Sihf(csvFilePath)
       Number(employee[i]),
     ]
   }
-};
+}
 
 function getSihf(hfRate, income)
 {
@@ -61,7 +61,7 @@ function getSihf(hfRate, income)
     '住房':[housing0.toFixed(2), housing1.toFixed(2)],
     '总计':[total0.toFixed(2), total1.toFixed(2)],
   };
-};
+}
 
 Sihf.prototype.getSihf = getSihf;
 module.exports = Sihf;

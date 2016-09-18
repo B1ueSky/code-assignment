@@ -3,7 +3,7 @@
  */
 
 /**
- * Constructor
+ * IncomeTax Constructor
  *
  * @param csvFilePath
  * @constructor
@@ -29,11 +29,19 @@ function IncomeTax(csvFilePath)
 
 function getTax(income)
 {
-  var i;
-  for (i = this.bounds.length-1; income < this.bounds[i]; i--)
-    ;
+  income = income - 3500;
+  income = income > 0 ? income : 0;
 
-  return this.rates[i] * income;
+  // find the section that income belongs to.
+  var i;
+  for (i = this.bounds.length-1; income <= this.bounds[i]; i--)
+    ;
+  // accumulate tax for all sections below.
+  var tax = (income - this.bounds[i]) * this.rates[i];
+  for (; i > 0; i--)
+    tax += (this.bounds[i] - this.bounds[i-1]) * this.rates[i-1];
+
+  return tax;
 };
 
 IncomeTax.prototype.getTax = getTax;
