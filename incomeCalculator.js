@@ -23,8 +23,8 @@ function IncomeCalculator()
 
 function calculate(name, income, meritType, hfRate)
 {
-  const merit = this.mp.getPay('A');
-  const sift  = this.s.getSihf(0.07, this.as.getEffectiveIncome(income));
+  const merit = this.mp.getPay(meritType);
+  const sift  = this.s.getSihf(hfRate, this.as.getEffectiveIncome(income));
   const incomeBeforeTax = (income + merit - sift['总计'][1]).toFixed(2);
   const tax = (this.it.getTax(incomeBeforeTax)).toFixed(2);
   const incomeAfterTax = (incomeBeforeTax - tax).toFixed(2);

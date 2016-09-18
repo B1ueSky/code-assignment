@@ -4,7 +4,8 @@
   "description": "&copy; 2015-2016 「燎原」｜ All Rights Reserved.",
   "main": "index.js",
   "dependencies": {
-    "fast-csv": "^2.1.0"
+    "fast-csv": "^2.1.0",
+    "prompt": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
