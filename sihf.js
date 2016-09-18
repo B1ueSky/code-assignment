@@ -52,15 +52,15 @@ function getSihf(hfRate, income)
   const total0 = endowment0 + medicare0 + unemployment0 + maternity0 + injury0 + housing0,
         total1 = endowment1 + medicare1 + unemployment1 + maternity1 + injury1 + housing1;
 
-  return {
-    '养老':[endowment0.toFixed(2), endowment1.toFixed(2)],
-    '医疗':[medicare0.toFixed(2), medicare1.toFixed(2)],
-    '失业':[unemployment0.toFixed(2), unemployment1.toFixed(2)],
-    '生育':[maternity0.toFixed(2), maternity1.toFixed(2)],
-    '工伤':[injury0.toFixed(2), injury1.toFixed(2)],
-    '住房':[housing0.toFixed(2), housing1.toFixed(2)],
-    '总计':[total0.toFixed(2), total1.toFixed(2)],
-  };
+  return [
+    {'类型':'养老', '单位':endowment0.toFixed(2), '个人':endowment1.toFixed(2)},
+    {'类型':'医疗', '单位':medicare0.toFixed(2), '个人':medicare1.toFixed(2)},
+    {'类型':'失业', '单位':unemployment0.toFixed(2), '个人':unemployment1.toFixed(2)},
+    {'类型':'生育', '单位':maternity0.toFixed(2), '个人':maternity1.toFixed(2)},
+    {'类型':'工伤', '单位':injury0.toFixed(2), '个人':injury1.toFixed(2)},
+    {'类型':'住房', '单位':housing0.toFixed(2), '个人':housing1.toFixed(2)},
+    {'类型':'总计', '单位':total0.toFixed(2), '个人':total1.toFixed(2)},
+  ];
 }
 
 Sihf.prototype.getSihf = getSihf;
