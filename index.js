@@ -5,12 +5,13 @@
 function incomeCalculator()
 {
   /* read average salary */
-  var AvgSalary = require('./avgSalary.js');
-  var avgSalary = new AvgSalary('本市职工月平均工资.csv');
-  var salary    = avgSalary.getAvg();
+  const AvgSalary = require('./avgSalary.js');
+  const avgSalary = new AvgSalary('本市职工月平均工资.csv');
+  const avgSlr    = avgSalary.getAvg();
 
   /* read merit pay */
-  const meritPay = {'A' : 4000, 'B' : 2000, 'C' : 100, 'D' : 0};
+  const MeritPay = require('./MeritPay.js');
+  const meritPay = new MeritPay('绩效工资标准.csv');
 
   /* read five social insurance and one housing fund rate */
   const sihfRate = {

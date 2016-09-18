@@ -2,7 +2,6 @@
  * Created by Tianyou Luo on 9/17/16.
  */
 
-
 /**
  * Constructor
  *
